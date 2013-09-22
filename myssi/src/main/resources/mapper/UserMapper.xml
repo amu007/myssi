@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.amu.demo.myssi.dao.UserMapper">
+	<resultMap id="departmentDetailMap" type="Department">
+		<id property="id" column="department_id" />
+		<result property="name" column="department_name" />
+		<association property="manager" column="manager_id" javaType="User">
+			<id property="id" column="manager_id" />
+			<result property="name" column="manager_name" />
+			<result property="email" column="manager_email" />
+		</association>
+		<collection property="userList" javaType="User">
+			<id property="id" column="user_id" />
+			<result property="name" column="user_name" />
+			<result property="email" column="user_email" />
+		</collection>
+	</resultMap>
+
+</mapper> 
